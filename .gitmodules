@@ -1,0 +1,3 @@
+[submodule "code-smell-classifier"]
+	path = code-smell-classifier
+	url = git@github.com:jamesgeziqian/code-smell-classifier.git
