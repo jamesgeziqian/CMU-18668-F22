@@ -11,15 +11,9 @@ def main():
     # you don't need to call this function when the ones right bellow are fully implemented
     pop.print_population_status()
 
-    """
-    Uncomment these lines bellow when you implement all the functions
-    
     while not pop.finished:
         pop.natural_selection()
-        pop.generate_new_population()
-        pop.evaluate()
         pop.print_population_status()
-    """
 
 
 if __name__ == "__main__":

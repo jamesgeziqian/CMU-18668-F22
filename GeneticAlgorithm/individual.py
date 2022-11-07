@@ -25,24 +25,31 @@ class Individual:
 
     # Fitness function: returns a floating points of "correct" characters
     def calc_fitness(self, target):
-        score = 0
+        score = sum([1 for i, gene in enumerate(self.genes) if gene == target[i]])
+        # for i, gene in enumerate(self.genes):
+        #     if gene == target[i]:
+        #         score += 1
 
         # insert your logic to calculate the individual fitness here
-
-        self.fitness = score
+        self.fitness = score / len(target)
 
     # The crossover function selects pairs of individuals to be mated, generating a third individual (child)
-    def crossover(self, partner):
+    def crossover(self, partner: 'Individual'):
         # Crossover suggestion: child with half genes from one parent and half from the other parent
         ind_len = len(self.genes)
         child = Individual(ind_len)
+
+        midpoint = random.randint(0, ind_len)
+        child.genes = self.genes[:midpoint] + partner.genes[midpoint:]
 
         return child
 
     # Mutation: based on a mutation probability, the function picks a new random character and replace a gene with it
     def mutate(self, mutation_rate):
         # code to mutate the individual here
-        pass
+        for i, gene in enumerate(self.genes):
+            if random.uniform(0, 1) < mutation_rate:
+                self.genes[i] = random.choice(string.printable)
 
 
 
