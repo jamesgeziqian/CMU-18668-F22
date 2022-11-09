@@ -13,12 +13,13 @@ class Individual:
 
     @staticmethod
     def generate_random_genes(size):
-        genes = []
+        return [random.choice(string.printable) for _ in range(size)]
 
-        for i in range(size):
-            genes.append(random.choice(string.printable))
+        # genes = []
+        # for i in range(size):
+        #     genes.append(random.choice(string.printable))
 
-        return genes
+        # return genes
 
     def __repr__(self):
         return ''.join(self.genes) + " -> fitness: " + str(self.fitness)
